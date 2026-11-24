@@ -2,7 +2,7 @@
 
 A beginner-friendly Jenkins CI/CD demonstration for RapidAscent. The project
 uses only Java's standard library: no Maven, Gradle, test framework, external
-services, credentials, or deployment infrastructure are needed.
+services, credentials, Docker setup, or deployment infrastructure are needed.
 
 ## Project structure
 
@@ -47,9 +47,13 @@ Create a Jenkins Pipeline job configured as follows:
 5. Set **Script Path** to `Jenkinsfile`.
 6. Save the job and select **Build Now**.
 
-The Jenkins environment must have the Docker Pipeline plugin and access to a
-Docker daemon. The pipeline runs in the Linux `eclipse-temurin:21-jdk` image;
-the application itself has no dependencies beyond JDK 21.
+The Jenkins controller is assumed to run in the official
+`jenkins/jenkins:lts-jdk21` image. The pipeline uses `agent any`, so it runs
+directly on an available Jenkins executor and uses the controller environment's
+JDK 21. Docker-in-Docker, Docker socket mounting, a Docker daemon, and the
+Docker Pipeline plugin are not needed. Apart from the already-configured
+Jenkins Pipeline and Git SCM support, no additional tools or dependencies are
+required.
 
 ## Pipeline stages
 

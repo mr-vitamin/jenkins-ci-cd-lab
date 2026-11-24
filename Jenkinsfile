@@ -1,10 +1,6 @@
 pipeline {
-    // Run every stage in a clean Linux container with the required JDK.
-    agent {
-        docker {
-            image 'eclipse-temurin:21-jdk'
-        }
-    }
+    // Use the Jenkins executor, which already provides JDK 21.
+    agent any
 
     options {
         // Keep source retrieval visible in the dedicated Checkout stage.
