@@ -1,0 +1,18 @@
+# Java build outputs
+build/
+out/
+target/
+*.class
+*.jar
+
+# Local editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# Local environment files (keep example templates shareable)
+.env
+.env.*
+!.env.example
